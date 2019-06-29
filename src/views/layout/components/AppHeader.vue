@@ -7,10 +7,10 @@
       </el-col>
       <el-col :span="8" :offset="8" class="fr">
         <div class="userInfo">
-          <img :src="photo" width="30">
+          <img :src="$store.state.user.photo" width="30">
           <el-dropdown>
           <span class="el-dropdown-link">
-            {{mobile}}<i class="el-icon-arrow-down el-icon--right"></i>
+            {{ $store.state.user.name }}<i class="el-icon-arrow-down el-icon--right"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item icon="el-icon-user-solid">用户信息</el-dropdown-item>
@@ -31,9 +31,10 @@ export default {
   name: 'layout-header',
   data() {
     return {
-      mobile: getUser().name,
-      photo: getUser().photo
     }
+  },
+  created() {
+    console.log(this.$store.state.name)
   },
   methods: {
     handleOut() {

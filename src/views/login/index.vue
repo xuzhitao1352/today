@@ -71,7 +71,8 @@ export default {
               code: this.form.code
             }
           })
-          setUser(JSON.stringify(res))
+          console.log(res)
+          setUser(res)
           this.$router.push('/')
         } catch(err) {
           console.log(err)

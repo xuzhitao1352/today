@@ -2,7 +2,7 @@ const localStorage = window.localStorage
 const USER_KEY = 'user_info'
 
 export function setUser(value) {
-	localStorage.setItem(USER_KEY,value)
+	localStorage.setItem(USER_KEY,JSON.stringify(value))
 }
 
 export function getUser() {

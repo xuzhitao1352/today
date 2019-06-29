@@ -35,6 +35,11 @@ const router = new Router({
           name: 'followers',
           path: '/followers',
           component: () => import('@/views/followers')
+        },
+        {
+          name: 'account',
+          path: '/account',
+          component: () => import('@/views/account')
         }
       ]
     }

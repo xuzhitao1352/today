@@ -5,6 +5,7 @@ import ElementUI from 'element-ui'
 import axios from 'axios'
 import { getUser } from './utils/auth'
 import JSONbig from 'json-bigint'
+import store from './store'
 // 引入样式
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.css'
@@ -57,5 +58,7 @@ Vue.use(ElementUI)
 
 new Vue({
   router,
+  // 组件可以通过this.$store访问容器中的实例
+  store,
   render: h => h(App)
 }).$mount('#app')
