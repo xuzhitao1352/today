@@ -64,14 +64,14 @@ export default {
         try {
           if (!valid) return false
           const res = await this.$http({
-            method: 'post',
-            url: 'http://ttapi.research.itcast.cn/mp/v1_0/authorizations',
+            method: 'POST',
+            url: '/authorizations',
             data: {
               mobile: this.form.mobile,
               code: this.form.code
             }
           })
-          setUser(JSON.stringify(res.data.data))
+          setUser(JSON.stringify(res))
           this.$router.push('/')
         } catch(err) {
           console.log(err)
@@ -106,12 +106,10 @@ export default {
       const { mobile } = this.form
       try {
         // 获取验证码必须数据
-        let captchas = await this.$http({
+        let data = await this.$http({
           method: 'GET',
-          url: 'http://ttapi.research.itcast.cn/mp/v1_0/captchas/' + mobile
+          url: '/captchas/' + mobile
         })
-        // 配置验证码
-        const { data } = captchas.data
         const captchaObj = await initGeetest({
           // 必填参数
           gt: data.gt,
@@ -135,14 +133,13 @@ export default {
           // const smsCode = await this.$http({
           const smsCode = await that.$http({
             method: 'get',
-            url: 'http://ttapi.research.itcast.cn/mp/v1_0/sms/codes/' + mobile,
+            url: '/sms/codes/' + mobile,
             params: {
               challenge,
               seccode,
               validate
             }
           })
-          console.log(smsCode)
         })
       } catch(err) {
         console.log(err)

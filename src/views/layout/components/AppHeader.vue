@@ -7,7 +7,7 @@
       </el-col>
       <el-col :span="8" :offset="8" class="fr">
         <div class="userInfo">
-          <img src="http://toutiao.meiduo.site/Fkj6tQi3xJwVXi1u2swCElotfdCi" width="30">
+          <img :src="photo" width="30">
           <el-dropdown>
           <span class="el-dropdown-link">
             {{mobile}}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -31,7 +31,8 @@ export default {
   name: 'layout-header',
   data() {
     return {
-      mobile: getUser().name
+      mobile: getUser().name,
+      photo: getUser().photo
     }
   },
   methods: {
