@@ -9,40 +9,14 @@ const router = new Router({
   routes: [
     // { name: 'home', path: '/', component: () => import('@/views/home') },
     // 自动获取layout文件下的index
-    { name: 'login', path: '/login', component: () => import('@/views/login') },
-    {
-      name : 'layout',
-      path:'/',
-      component: () => import('@/views/layout'),
-      // 子路由
-      children:[
-        {
-          name: 'home',
-          path: '', // 父路由的默认内容
-          component: () => import('@/views/home')
-        },
-        {
-          name: 'publish',
-          path: '/publish',
-          component: () => import('@/views/publish')
-        },
-        {
-          name: 'article',
-          path: '/article',
-          component: () => import('@/views/article')
-        },
-        {
-          name: 'followers',
-          path: '/followers',
-          component: () => import('@/views/followers')
-        }
-      ]
-    }
+    { name : 'layout', path:'/', component: () => import('@/views/layout') },
+    { name: 'login', path: '/login', component: () => import('@/views/login') }
   ]
 })
 
 router.beforeEach((to, from, next) => {
 	nprogress.start()
+	console.log(getUser())
 	if(to.path !== "/login"){
 		if(!getUser()){
 			alert("请先登录")
