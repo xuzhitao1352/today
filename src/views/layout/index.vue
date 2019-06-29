@@ -12,6 +12,7 @@
 		    </el-header>
 		    <el-main>
 					<!-- 待填充 -->
+					<router-view/>
 		    </el-main>
 		  </el-container>
 		</el-container>

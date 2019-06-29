@@ -10,31 +10,47 @@
       class="el-menu-vertical-demo"
       background-color="rgba(0,0,0,0)"
       text-color="rgb(173, 175, 181)"
-      active-text-color="#66CCFF">
+      active-text-color="#66CCFF"
+      :router="true">
       <el-menu-item index="1">
+        <i class="iconfont icon-home"></i>
         <span slot="title">首页</span>
       </el-menu-item>
 
 			<el-submenu index="2">
 				<template slot="title">
-          <span>内容管理</span>
+          <i class="iconfont icon-menu"></i>
+          <span>内容</span>
 				</template>
 				<el-menu-item-group>
-          <el-menu-item index="1-3">选项1</el-menu-item>
+          <el-menu-item index="/publish">
+            <i class="iconfont icon-edit-fill"></i>
+            <span slot="title">发布</span>
+          </el-menu-item>
+        </el-menu-item-group>
+        <el-menu-item-group>
+          <el-menu-item index="/article">
+            <i class="iconfont icon-unorderedlist"></i>
+            <span slot="title">内容列表</span>
+          </el-menu-item>
         </el-menu-item-group>
 			</el-submenu>
 
-			<el-submenu index="3">
-				<template slot="title">
-          <span>导航三</span>
-				</template>
-				<el-menu-item-group>
-          <el-menu-item index="1-3">选项1</el-menu-item>
-        </el-menu-item-group>
-			</el-submenu>
-      
-			<el-menu-item index="4">
-        <span slot="title">账号信息</span>
+			<el-menu-item index="/comment">
+        <i class="iconfont icon-comment"></i>
+        <span slot="title">评论</span>
+      </el-menu-item>
+      <el-menu-item index="/image">
+        <i class="iconfont icon-image"></i>
+        <span slot="title">素材</span>
+      </el-menu-item>
+      <el-menu-item index="/followers">
+        <i class="iconfont icon-team"></i>
+        <span slot="title">粉丝</span>
+      </el-menu-item>
+      <el-menu-item index="/account">
+        <i class="iconfont icon-user"></i>
+        <span slot="title">账户</span>
       </el-menu-item>
 			
     </el-menu>
