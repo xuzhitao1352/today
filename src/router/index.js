@@ -27,14 +27,19 @@ const router = new Router({
           component: () => import('@/views/publish')
         },
         {
+          name: 'publish-edit',
+          path: '/publish/:id',
+          component: () => import('@/views/publish')
+        },
+        {
           name: 'article',
           path: '/article',
           component: () => import('@/views/article')
         },
         {
-          name: 'followers',
-          path: '/followers',
-          component: () => import('@/views/followers')
+          name: 'comment',
+          path: '/comment',
+          component: () => import('@/views/comment')
         },
         {
           name: 'account',

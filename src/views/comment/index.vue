@@ -41,7 +41,7 @@
 
 <script>
 export default {
-  name: 'AppFollowers',
+  name: 'AppComment',
   data () {
     return {
       per_page: 10,

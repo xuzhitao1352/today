@@ -33,9 +33,6 @@ export default {
     return {
     }
   },
-  created() {
-    console.log(this.$store.state.name)
-  },
   methods: {
     handleOut() {
       removeUser()

@@ -13,7 +13,7 @@ const store = new Vuex.Store({
   mutations: {
     editUser(state, user) {
       console.log(state.user)
-      Object.assign(state.user,user)
+      Object.assign(state.user, user)
       setUser(state.user)
     }
   }

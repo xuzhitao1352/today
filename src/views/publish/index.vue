@@ -62,22 +62,56 @@ export default {
     ArticleChannel,
     quillEditor
   },
+  created() {
+    if(this.$route.name === 'publish-edit'){
+      this.lodingArticle()
+    }
+  },
   methods: {
-    async handleArticle(draft) {
+    // 获取单个文章
+    async lodingArticle() {
       try {
-        let res = await this.$http({
-          method: 'POST',
-          url: '/articles',
-          params: {
-            draft
-          },
-          data: this.articleParams
+        const res = await this.$http({
+          method: 'GET',
+          url: `/articles/${this.$route.params.id}`
         })
         console.log(res)
-        this.$message({
-          type: 'success',
-          message: '发布成功'
-        })
+        this.articleParams = res
+      } catch (err) {
+        this.$message.error("获取用户列表失败")
+      }
+    },
+    async handleArticle(draft) {
+      // 如果是当前publish页面发送创建新闻请求
+      try {
+        if(this.$router.name === 'publish'){
+          let res = await this.$http({
+            method: 'POST',
+            url: '/articles',
+            params: {
+              draft
+            },
+            data: this.articleParams
+          })
+          this.$message({
+            type: 'success',
+            message: '发布成功'
+          })
+        } else {
+          let res = await this.$http({
+            method: 'put',
+            url: `/articles/${this.$route.params.id}`,
+            params: {
+              draft
+            },
+            data: this.articleParams
+          })
+          this.$message({
+            type: 'success',
+            message: '修改完毕'
+          })
+          this.$router.push('/article')
+        }
       } catch (err) {
         this.$message.error('发布失败', err)
       }

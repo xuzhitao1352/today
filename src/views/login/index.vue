@@ -54,7 +54,7 @@ export default {
         isExist: false,
         time: 3,
         setIntervalCode: 0
-      }
+      } 
     }
   },
   methods: {

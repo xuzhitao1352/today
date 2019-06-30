@@ -73,7 +73,7 @@
             prop='id'
             label="操作">
             <template slot-scope="scope">
-              <el-button size="mini" type="primary" plain>编辑</el-button>
+              <el-button size="mini" type="primary" @click="$router.push(`/publish/${scope.row.id}`)" plain>编辑</el-button>
               <el-button size="mini" type="danger" @click="handleDelect(scope.row.id)" plain>删除</el-button>
             </template>
           </el-table-column>
@@ -90,13 +90,13 @@
 			
 		</el-card>
 
-		
   </div>
 </template>
 
 <script>
 import ArticleChannel from '@/components/article-channel'
 import { getUser } from '@/utils/auth'
+
 export default {
   name: 'AppArticle',
   data () {
@@ -183,9 +183,7 @@ export default {
 	  		const res = await this.$http({
 	  			method: 'get',
 	  			url: '/articles',
-	  			params: {
-            ...filterParams
-	  			}
+	  			params: filterParams
 	  		})
         // console.log(res)
         this.total_count = res.total_count

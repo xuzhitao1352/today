@@ -12,7 +12,7 @@
 		    </el-header>
 		    <el-main>
 					<!-- 待填充 -->
-					<router-view/>
+					<router-view :key="$route.path"/>
 		    </el-main>
 		  </el-container>
 		</el-container>
