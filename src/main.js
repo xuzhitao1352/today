@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui'
 import axios from 'axios'
-import { getUser } from './utils/auth'
+import { getUser,removeUser } from './utils/auth'
 import JSONbig from 'json-bigint'
 import store from './store'
 // 引入样式
@@ -47,6 +47,16 @@ axios.interceptors.response.use(response => {
     return response.data
   }
 }, err => {
+  console.log(err)
+  if (error.response.status === 401) {
+    // 清除本地存储中的无效 token 的用户信息
+    removeUser()
+
+    // 跳转到用户登录页面
+    router.push({
+      name: 'login'
+    })
+  }
   return Promise.reject(err)
 })
 

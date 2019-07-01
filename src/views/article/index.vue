@@ -205,11 +205,9 @@ export default {
 	.text {
 	  font-size: 14px;
 	}
-
 	.item {
 	  margin-bottom: 18px;
 	}
-
 	.clearfix:before,
 	.clearfix:after {
 	  display: table;
@@ -218,7 +216,6 @@ export default {
 	.clearfix:after {
 	  clear: both
 	}
-
 	.box-card {
 	  width: 100%;
 
@@ -229,6 +226,5 @@ export default {
 	.screen {
 		margin-bottom: 20px;
 	}
-
 }
 </style>

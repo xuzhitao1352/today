@@ -36,7 +36,8 @@ export default {
   methods: {
     handleOut() {
       removeUser()
-      this.$router.push('/login')
+      window.location.href = '#/login'
+      // window.location.reload()
     }
   }
 }

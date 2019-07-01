@@ -73,7 +73,7 @@ export default {
           })
           console.log(res)
           setUser(res)
-          this.$router.push('/')
+          window.location.reload()
         } catch(err) {
           console.log(err)
           this.$message.error('验证码错误')
